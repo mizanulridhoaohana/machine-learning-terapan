@@ -54,7 +54,7 @@ Proyek ini dibangun untuk perusahaan dengan karakteristik bisnis sebagai berikut
 2. Menyiapkan data agar bisa digunakan dalam membangun model.
 3. Algoritma yang dipakai dalam proyek ini adalah Logistic Linear Regression dan Decision Tree Algorithm.
 
-## Data Understanding & Removing Outlier
+## Data Understanding
 
 Dataset yang digunakan dalam proyek ini merupakan data harga mobil sport dengan 8 variabel. Dataset ini dapat diunduh di [Kaggle : Sports Car Prices dataset](https://www.kaggle.com/datasets/rkiattisak/sports-car-prices-dataset).
 
@@ -65,104 +65,35 @@ Berikut informasi pada dataset :
 + Dataset memiliki 6 fitur bertipe string, 1 fitur bertipe decimal dan 1 fitur bertipe Integer.
 + Terdapat beberapa missing value dalam dataset.
 
-### Variable - variable pada dataset
+### Variabel pada dataset
 
-+ Car Make 
-+ Car Model
-+ Year
-+ Engine Size(L)
-+ Horsepower
-+ Torque (lb-ft)
-+ 0-60 MPH Time (seconds)
-+ Price (in USD)
-
-Dari ke 12 fitur dapat dilihat bahwa fitur Point of Contract dan Posted On tidak mempengaruhi harga sewa rumah sehingga akan dihapus. Hal ini dikarenakan kedua fitur tersebut tidak diperlukan dalam membangun model prediksi harga sewa.
-
-### Univariate Analysis
-
-Univariate Analysis adalah menganalisis setiap fitur secara terpisah.
-
-#### Analisis jumlah nilai unique pada setiap fitur kategorik
-
-Fitur kategorik City, Furnishing Status, dan Tenant Preferred memiliki sebaran sample yang cukup merata.
-<div><img src="https://user-images.githubusercontent.com/107544829/188319357-fc12fffa-b709-4584-8363-778bc678b328.png" width="220"/></div> <div><img src="https://user-images.githubusercontent.com/107544829/188319651-02ddb783-da3d-41ed-9b5f-9525aaaf9ed1.png" width="220"/></div> <div><img src="https://user-images.githubusercontent.com/107544829/188319750-1f080942-7826-4eaf-a021-8b9f938a861a.png" width="220"/></div><br />
-
-Berikut adalah fitur dengan sample yang tidak merata :
-
-+ Area Type
-  <div><img src="https://user-images.githubusercontent.com/107544829/188318629-f474b626-a16a-4971-ab42-2c183d22b744.png" width="220"/></div>
-  Hanya terdapat 2 sample Built Area pada fitur Area Type. Untuk menghindari high dimensional data, maka kedua sample ini akan dihapus.
-
-+ Floor dan Area Locality
-  <div><img src="https://user-images.githubusercontent.com/107544829/188319871-603b24b8-26b2-449b-b42e-59501a4803a7.png" width="220"/></div>
-   <div><img src="https://user-images.githubusercontent.com/107544829/188319880-3226bd04-920e-4050-b5ab-38dec02fc524.png" width="220"/></div>
-  Fitur Floor dan Area Locality memiliki banyak sekali nilai unique. Untuk menghindari high dimensional data, maka kedua fitur ini akan dihapus.
-
-#### Analisis sebaran pada setiap fitur numerik
-
-<div><img src="https://user-images.githubusercontent.com/107544829/188320722-451f25bd-de65-4e09-9d0a-9d8835249492.png" width="450"/></div><br />
-Berikut analisis dari grafik di atas :
-
-+ Sebagian besar rumah memiliki 1 sampai 3 BHK dan 1 sampai 3 kamar mandi.
-+ Sebagian besar rumah memiliki luas di bawah 2000 sqft.
-+ Rentang harga sewa cukup tinggi, yaitu dari 1200 hingga 3500000. Namun, rata-rata harga rumah hanya 35003. Distribusi harga yang kurang bagus seperti ini dapat berimplikasi pada model.
-
-### Multivariate Analysis
-
-Multivariate Analysis menunjukkan hubungan antara dua atau lebih fitur dalam data.
-
-#### Analisis fitur numerik
-
-+ Fitur Size dan BHK (Menghapus BHK Outlier)
-  Kedua fitur ini dianalisis karena tidak biasa untuk rumah dengan 1 BHK memiliki luas 100 sqft. Untuk itu ditentukan treshold atau batas 300 sqft/bhk. Data yang berada di bawah batas akan dihapus. Hal ini menyebabkan berkurangnya jumlah sample sebesar 548.
-
-+ Fitur Size dan Rent (Menghapus Price per sqft Outlier)
-  Untuk memudahkan dalam mendeteksi outlier, maka dibuat fitur baru 'Price_per_sqft' dari kedua fitur tersebut untuk menganalisis harga sewa per luas sqft.
-  <div><img src="https://user-images.githubusercontent.com/107544829/188323140-6174b592-4c7b-4671-9acb-b49a621d2aba.png" width="220"/></div>
-  Dari sini dapat terlihat bahwa harga 571 per sqft sangat rendah dan harga 1400000 per sqft sangat tinggi. Untuk itu penghapusan outlier price per sqft outlier dengan mean dan one standard deviation yang telah dikelompokkan berdasarkan kota. Hal ini menyebabkan berkurangnya jumlah sample sebesar 497.
-
-+ Fitur Bathroom dan BHK (Menghapus Bathroom Outlier)
-  Kedua fitur ini dianalisis karena tidak biasa untuk rumah dengan 2 BHK memiliki 4 kamar mandi. Untuk itu ditentukan batas bahwa jumlah kamar mandi tidak boleh melebihi jumlah BHK + 2. Hal ini menyebabkan berkurangnya sample sebesar 3.
-  
-+ Melihat kolerasi antara semua fitur numerik
-  <div><img src="https://user-images.githubusercontent.com/107544829/188323797-8186246a-8cdd-4232-8bc7-bce615cf92d0.png" width="350"/></div>
-  Fitur BHK, Size, dan Bathroom berkorelasi tidak signifikan dengan fitur target (Rent). Hal ini mungkin   disebabkan oleh kurangnya data dalam penelitian ini.Fitur BHK dan Bathroom berkolerasi signifikan dengan fitur size. Hal ini sudah sesuai harapan dari penghapusan outlier yang sudah dilakukan sebelumnya.
-
-#### Analisis fitur kategorik
-
-Analisis ini dilakukan untuk melihat kolerasi antara fitur kategorik dengan fitur target (Rent).
-
-+ Fitur Area Type
-  <div><img src="https://user-images.githubusercontent.com/107544829/188324455-9ae90db3-681a-4f14-bee0-0daaaec86490.png" width="500"/></div>
-  Fitur Area Type memiliki pengaruh yang kecil terhadap rata-rata harga sewa.
-
-+ Fitur City
-  <div><img src="https://user-images.githubusercontent.com/107544829/188324564-b978b637-122b-403d-a760-eb0f7838bd95.png" width="500"/></div>
-  Fitur City memiliki pengaruh cukup besar terhadap rata-rata harga sewa, terutama jika rumah berada di kota Mumbai. Hal ini dibuktikan dengan sebaran rumah yang mencapai harga tertinggi di kota Mumbai. Mumbai merupakan kota paling mahal di India untuk ditinggali, diikuti dengan Delhi.
-
-  Referensi : [Ini Adalah Kota Termahal Untuk Hidup Di India](https://id.yourtripagent.com/these-are-most-expensive-cities-to-live-in-india-4734)
-
-+ Fitur Furnishing Status
-  <div><img src="https://user-images.githubusercontent.com/107544829/188324598-a765e404-4140-4518-91eb-fd298ba9d089.png" width="500"/></div>
-  Fitur Furnishing Status memiliki pengaruh cukup besar terhadap rata-rata harga sewa. Merupakan hal biasa bila rumah yang memiliki perabotan lengkap akan diberi harga sewa lebih tinggi daripada rumah tanpa perabotan.
-
-+ Fitur Tenant Preferred
-  <div><img src="https://user-images.githubusercontent.com/107544829/188324642-0de4fe01-20c8-4560-981a-d6b0822d56ff.png" width="500"/></div>
-  Fitur Tenant Preferred memiliki pengaruh yang lumayan terhadap rata-rata harga sewa. Dari grafik dapat terlihat bahwa rumah yang sangat disarankan untuk disewa oleh keluarga memiliki rata-rata harga sewa yang lebih mahal dibanding lainnya.
++ Car Make: Merek mobil sport yang mewakili merek atau perusahaan yang memproduksi mobil tersebut.
++ Car Model: Model mobil sport yang mewakili versi atau varian tertentu dari mobil yang diproduksi oleh pabrikan.
++ Year: Tahun produksi mobil sport, yang menunjukkan tahun model saat mobil tersebut pertama kali diperkenalkan atau tersedia untuk dibeli.
++ Engine Size(L): Ukuran mesin mobil sport dalam liter, yang mewakili volume silinder mesin. Ukuran mesin yang lebih besar biasanya menunjukkan tenaga dan kinerja yang lebih tinggi. 
++ Horsepower: Horsepower mobil sport, yang mewakili keluaran tenaga mesin mobil. Tenaga kuda yang lebih tinggi biasanya menunjukkan akselerasi yang lebih cepat dan kecepatan tertinggi yang lebih tinggi.
++ Torque (lb-ft): Torsi mobil sport dalam pound-feet, yang mewakili gaya putaran yang dihasilkan oleh mesin. Nilai torsi yang lebih tinggi biasanya menunjukkan akselerasi yang lebih kuat dan penanganan yang lebih baik.
++ 0-60 MPH Time (seconds): Waktu yang diperlukan mobil sport untuk berakselerasi dari 0 hingga 60 mil per jam, yang merupakan ukuran umum akselerasi dan performa. Waktu 0-60 MPH yang lebih rendah biasanya menunjukkan akselerasi yang lebih cepat dan kinerja yang lebih baik.
++ Price (in USD): Harga mobil sport dalam dolar AS, yang mewakili biaya pembelian mobil.
 
 ## Data preparation
 
-+ One Hot Encoding
++ Encoding
 
-  One hot encoding adalah teknik mengubah data kategorik menjadi data numerik dimana setiap kategori menjadi kolom baru dengan nilai 0 atau 1. Fitur yang akan diubah menjadi numerik pada proyek ini adalah Area Type, City, Furnishing Status, dan Tenant Preferred.
+  Encoding adalah teknik mengubah data kategorik menjadi data numerik dimana setiap kategori menjadi kolom baru dengan nilai unik yang diberikan secara berurutan. Fitur yang akan diubah menjadi numerik pada proyek ini adalah Car Make.
   
++ Fill Missing Values
+
+  Proses ini akan mengisi nilai missing value dari dataset yang sudah ada. Dalam hal ini, label yang termasuk adalah Engine Size (L), Horsepower, Torque (lb-ft), 0-60 MPH Time (seconds). Nilai akan di isi dengan nilai mean dari data tersebut.
+
++ Convert Data Type
+
+  Pada proses ini, akan dilakukan penyeragaman tipe data pada setiap kolom, sehingga seluruh kolom dapat terstandarisasi dengan baik. Tipe data yang digunakan adalah int64 pada setiap kolom.
+
 + Train Test Split
 
-  Train test split aja proses membagi data menjadi data latih dan data uji. Data latih akan digunakan untuk membangun model, sedangkan data uji akan digunakan untuk menguji performa model. Pada proyek ini dataset sebesar 3696 dibagi menjadi 3511 untuk data latih dan 185 untuk data uji.
+  Train test split adalah proses membagi data menjadi data latih dan data uji. Data latih akan digunakan untuk membangun model, sedangkan data uji akan digunakan untuk menguji performa model. Pada proyek ini dataset sebesar 3696 dibagi menjadi 3511 untuk data latih dan 185 untuk data uji.
   
-+ Normalization
-
-  Algoritma machine learning akan memiliki performa lebih baik dan bekerja lebih cepat jika dimodelkan dengan data seragam yang memiliki skala relatif sama. Salah satu teknik normalisasi yang digunakan pada proyek ini adalah Standarisasi dengan sklearn.preprocessing.StandardScaler.
 
 ## Modeling
 
