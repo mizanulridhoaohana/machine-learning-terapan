@@ -131,6 +131,15 @@ Pada proses EDA, banyak digunakan analisis sebaran dan korelasi yang bisa diliha
 Metrik evaluasi yang digunakan pada proyek ini [R2 Score](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.r2_score.html). R^2 (R-squared), juga dikenal sebagai koefisien determinasi, adalah metrik evaluasi yang digunakan dalam statistik dan analisis regresi untuk mengukur sejauh mana model regresi cocok dengan data yang diamati. R^2 score mengukur seberapa baik variabilitas dalam data independen (variabel prediktor) menjelaskan variabilitas dalam data dependen (variabel target). R^2 score berkisar antara 0 hingga 1, dan semakin mendekati 1, semakin baik model regresinya sesuai dengan data. Berikut formula R2 Score :
 ![image](https://github.com/mizanulridhoaohana/machine-learning-terapan/assets/112617513/2ccbd4bb-0da4-4bb6-b2df-3a1194819e86)
 
+Dimana,
+SS res adalah jumlah kuadrat dari sisa kesalahan.
+SS tot adalah jumlah total kesalahan.
+
+Contoh Interpretasi perhitungan skor R2 :
+Asumsikan R2 = 0,68
+Dapat dikatakan bahwa 68% variabilitas atribut keluaran dependen dapat dijelaskan oleh model, sedangkan 32% sisanya masih belum dapat dijelaskan.
+R2 menunjukkan proporsi titik data yang terletak di dalam garis yang dibuat oleh persamaan regresi. Nilai R2 yang lebih tinggi diinginkan karena menunjukkan hasil yang lebih baik.
+
 Berikut hasil evaluasi pada proyek ini :
 
 + R2 Score
