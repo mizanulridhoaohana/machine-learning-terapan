@@ -13,10 +13,9 @@ Pesatnya perkembangan teknologi otomotif dan minat masyarakat terhadap kinerja s
 Dalam upaya untuk memprediksi harga mobil sport, kami memanfaatkan dataset yang berisi informasi tentang harga mobil sport dari berbagai produsen terkemuka. Dataset ini mencakup informasi tentang merek dan model mobil, tahun produksi, ukuran mesin, tenaga kuda, torsi, waktu akselerasi 0-60 MPH, dan harga dalam USD. Data ini menjadi sumber penting untuk menganalisis harga mobil sport beragam dan mengidentifikasi tren dalam pasar. Dengan beragam informasi yang diberikan pada dataset, akan dilakukan studi mendalam untuk mengidentifikasi faktor-faktor yang paling memengaruhi harga mobil sport. Prediksi harga ini akan memberikan wawasan berharga bagi konsumen, pemasar, dan produsen mobil sport, serta para peneliti yang tertarik dalam dinamika pasar otomotif.
 
 <br>
+![image](https://github.com/mizanulridhoaohana/machine-learning-terapan/assets/112617513/2da3b096-c0d2-4bf4-868b-4b181711e36e)
 
-<div><img src="https://www.pinterest.com/pin/357332551696985459/" width="1000"/></div>
-
-[Referensi gambar](https://www.pinterest.com/pin/357332551696985459/)
+[Referensi gambar]([https://www.pinterest.com/pin/357332551696985459/](https://storage.googleapis.com/kaggle-datasets-images/2988825/5144443/38723a1b40c5912b4224e3378a0eef8b/dataset-cover.jpg?t=2023-03-11-05-55-54))
 
 <br>
 
@@ -26,7 +25,7 @@ Model machine learning yang dibangun akan memungkinkan perusahaan untuk memperki
 
 Referensi : 
 
-+ [PREDIKSI HARGA MOBIL MENGGUNAKAN ALGORITMA REGRESSIDENGAN HYPER-PARAMETER TUNING](http://jurnal.unprimdn.ac.id/index.php/JUSIKOM/article/view/2479/1459)
++ [Prediksi Harga Mobil Menggunakan Algoritma Regression Hyper-Parameter Tuning](http://jurnal.unprimdn.ac.id/index.php/JUSIKOM/article/view/2479/1459)
 + [Car Price Prediction Using Machine Learning](https://www.researchgate.net/publication/335799148_Car_Price_Prediction_Using_Machine_Learning)  
 
 ## Business Understanding
@@ -84,11 +83,11 @@ Pada proses EDA, banyak digunakan analisis sebaran dan korelasi yang bisa diliha
 
 + Encoding
 
-  Encoding adalah teknik mengubah data kategorik menjadi data numerik dimana setiap kategori menjadi kolom baru dengan nilai unik yang diberikan secara berurutan. Fitur yang akan diubah menjadi numerik pada proyek ini adalah Car Make.
+  Encoding adalah teknik mengubah data kategorik menjadi data numerik dimana setiap kategori menjadi kolom baru dengan nilai unik yang diberikan secara berurutan. Fitur yang akan diubah menjadi numerik pada proyek ini adalah Car Make. Dengan mengubah data kategori numerik, perhitungan dalam data modeling dapat dipermudah dan disederhanakan.
   
 + Fill Missing Values
 
-  Proses ini akan mengisi nilai missing value dari dataset yang sudah ada. Dalam hal ini, label yang termasuk adalah Engine Size (L), Horsepower, Torque (lb-ft), 0-60 MPH Time (seconds). Nilai akan di isi dengan nilai mean dari data tersebut.
+  Proses ini akan mengisi nilai missing value dari dataset yang sudah ada. Hal ini dilakukan untuk mengantisipasi overfit atau underfit pada model yang akan dibangun. Dalam hal ini, label yang termasuk adalah Engine Size (L), Horsepower, Torque (lb-ft), 0-60 MPH Time (seconds). Nilai akan di isi dengan nilai mean dari data tersebut.
 
 + Convert Data Type
 
@@ -130,7 +129,7 @@ Pada proses EDA, banyak digunakan analisis sebaran dan korelasi yang bisa diliha
 ## Evaluation
 
 Metrik evaluasi yang digunakan pada proyek ini [R2 Score](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.r2_score.html). R^2 (R-squared), juga dikenal sebagai koefisien determinasi, adalah metrik evaluasi yang digunakan dalam statistik dan analisis regresi untuk mengukur sejauh mana model regresi cocok dengan data yang diamati. R^2 score mengukur seberapa baik variabilitas dalam data independen (variabel prediktor) menjelaskan variabilitas dalam data dependen (variabel target). R^2 score berkisar antara 0 hingga 1, dan semakin mendekati 1, semakin baik model regresinya sesuai dengan data. Berikut formula R2 Score :
-<div><img src="https://user-images.githubusercontent.com/107544829/188412654-f5dc0ae1-901b-470e-aae5-1f6b5fb68b4d.png" width="300"/></div>
+![image](https://github.com/mizanulridhoaohana/machine-learning-terapan/assets/112617513/2ccbd4bb-0da4-4bb6-b2df-3a1194819e86)
 
 Berikut hasil evaluasi pada proyek ini :
 
