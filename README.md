@@ -78,7 +78,7 @@ Berikut informasi pada dataset :
 
 ### Exploratory Data Analytics (EDA)
 
-
+Pada proses EDA, banyak digunakan analisis sebaran dan korelasi yang bisa dilihat langsung pada code yang sudah dilampirkan. Penggunaan visualisasi juga menjadi faktor penting dalam mempermudah memahami karakteristik dataset. Hal ini memberikan insight lanjutan untuk memproses data sebelum dilakukan proses prediksi.
 
 ## Data preparation
 
@@ -93,6 +93,10 @@ Berikut informasi pada dataset :
 + Convert Data Type
 
   Pada proses ini, akan dilakukan penyeragaman tipe data pada setiap kolom, sehingga seluruh kolom dapat terstandarisasi dengan baik. Tipe data yang digunakan adalah int64 pada setiap kolom.
+
++ Add Additional Variable
+
+  Proses ini bertujuan untuk menambahkan variabel baru yang dapat memberikan insight baru mengenai mobil yang sudah diproduksi. Variabel yang ditambahkan adalah Age, variabel ini merepresentasikan umur dari kendaraan sampai dengan saat ini.
 
 + Train Test Split
 
@@ -125,7 +129,7 @@ Berikut informasi pada dataset :
 
 ## Evaluation
 
-Metrik evaluasi yang digunakan pada proyek ini R2 Score. R^2 (R-squared), juga dikenal sebagai koefisien determinasi, adalah metrik evaluasi yang digunakan dalam statistik dan analisis regresi untuk mengukur sejauh mana model regresi cocok dengan data yang diamati. R^2 score mengukur seberapa baik variabilitas dalam data independen (variabel prediktor) menjelaskan variabilitas dalam data dependen (variabel target). R^2 score berkisar antara 0 hingga 1, dan semakin mendekati 1, semakin baik model regresinya sesuai dengan data. Berikut formula R2 Score :
+Metrik evaluasi yang digunakan pada proyek ini [R2 Score](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.r2_score.html). R^2 (R-squared), juga dikenal sebagai koefisien determinasi, adalah metrik evaluasi yang digunakan dalam statistik dan analisis regresi untuk mengukur sejauh mana model regresi cocok dengan data yang diamati. R^2 score mengukur seberapa baik variabilitas dalam data independen (variabel prediktor) menjelaskan variabilitas dalam data dependen (variabel target). R^2 score berkisar antara 0 hingga 1, dan semakin mendekati 1, semakin baik model regresinya sesuai dengan data. Berikut formula R2 Score :
 <div><img src="https://user-images.githubusercontent.com/107544829/188412654-f5dc0ae1-901b-470e-aae5-1f6b5fb68b4d.png" width="300"/></div>
 
 Berikut hasil evaluasi pada proyek ini :
