@@ -9,12 +9,34 @@ Untuk memenuhi kebutuhan tugas proyek Predictive Analytics pada platform Dicodin
 
 ### Latar Belakang
 
-Pesatnya perkembangan teknologi otomotif dan minat masyarakat terhadap kinerja serta gaya hidup mewah menjadi hal yang makin banyak digandrungi oleh masyarakat, mobil sport telah menjadi pilihan unggulan bagi pecinta kendaraan yang mencari kombinasi sempurna antara kekuatan, prestasi, dan gaya.
-Dalam upaya untuk memprediksi harga mobil sport, kami memanfaatkan dataset yang berisi informasi tentang harga mobil sport dari berbagai produsen terkemuka. Dataset ini mencakup informasi tentang merek dan model mobil, tahun produksi, ukuran mesin, tenaga kuda, torsi, waktu akselerasi 0-60 MPH, dan harga dalam USD. Data ini menjadi sumber penting untuk menganalisis harga mobil sport beragam dan mengidentifikasi tren dalam pasar. Dengan beragam informasi yang diberikan pada dataset, akan dilakukan studi mendalam untuk mengidentifikasi faktor-faktor yang paling memengaruhi harga mobil sport. Prediksi harga ini akan memberikan wawasan berharga bagi konsumen, pemasar, dan produsen mobil sport, serta para peneliti yang tertarik dalam dinamika pasar otomotif.
-
 <br>
 <div><img src="https://github.com/mizanulridhoaohana/machine-learning-terapan/assets/112617513/2da3b096-c0d2-4bf4-868b-4b181711e36e" width="1000"/></div>
 <br>
+
+Pesatnya perkembangan teknologi otomotif dan minat masyarakat terhadap kinerja serta gaya hidup mewah menjadi hal yang makin banyak digandrungi oleh masyarakat, mobil sport telah menjadi pilihan unggulan bagi pecinta kendaraan yang mencari kombinasi sempurna antara kekuatan, prestasi, dan gaya.
+
+Berdasarkan data yang tersedia, kita dapat mengidentifikasi beberapa tren dan tantangan dalam industri mobil sport:
+
+Tren:
+
+1. Peningkatan Kinerja: Data menunjukkan bahwa mobil sport memiliki tenaga kuda yang bervariasi, dengan beberapa mobil memiliki tenaga kuda yang sangat tinggi. Ini mengindikasikan tren terus meningkatnya kinerja mobil sport, mungkin sebagai respons terhadap permintaan konsumen untuk mobil yang lebih kuat dan cepat.
+
+2. Pendekatan Harga: Rentang harga yang luas dalam dataset menunjukkan keragaman harga mobil sport. Ini mencerminkan tren pasar yang memungkinkan adanya mobil sport dengan harga yang sesuai dengan berbagai kelas konsumen, dari yang lebih terjangkau hingga yang sangat mewah.
+
+3. Elektrifikasi: Beberapa mobil dalam dataset memiliki mesin listrik. Ini mencerminkan tren industri yang semakin mengarah ke mobil sport yang lebih ramah lingkungan dengan teknologi elektrifikasi untuk meningkatkan efisiensi dan mengurangi emisi.
+
+Tantangan:
+
+1. Kompetisi Sengit: Pasar mobil sport sangat kompetitif dengan banyak produsen yang bersaing. Menentukan harga yang tepat dan menjaga daya saing menjadi tantangan yang signifikan.
+
+2. Regulasi Lingkungan: Regulasi emisi dan ketahanan bahan bakar semakin ketat di banyak negara. Produsen mobil sport perlu menghadapi tantangan ini dengan mencari cara untuk mematuhi peraturan sambil tetap mempertahankan kinerja.
+
+3. Perubahan Teknologi: Dengan adopsi teknologi baru, termasuk elektrifikasi, produsen mobil sport harus beradaptasi dengan perubahan tren dan teknologi, yang dapat memengaruhi desain dan kinerja mobil.
+
+4. Fluktuasi Harga Bahan Baku: Harga bahan mentah, seperti logam dan komponen mobil, dapat fluktuatif. Ini dapat berdampak pada biaya produksi mobil sport dan akhirnya pada harga jual.
+
+5. Keamanan dan Keselamatan: Mobil sport sering kali memiliki kinerja tinggi, yang dapat meningkatkan risiko kecelakaan. Tantangan ini mencakup upaya untuk meningkatkan keselamatan pengemudi dan penumpang.
+
 
 Menentukan harga yang sesuai untuk mobil sport adalah tantangan yang sering kali penuh ketidakpastian dalam industri otomotif. Dalam upaya untuk mengatasi kompleksitas ini, perusahaan otomotif dapat mengambil langkah maju dengan memanfaatkan model machine learning untuk melakukan prediksi harga mobil sport. Dengan pendekatan ini, harapannya adalah mampu mengidentifikasi nilai yang paling akurat berdasarkan karakteristik dan fitur-fitur yang dimiliki oleh setiap mobil. Prediksi harga ini akan memberikan panduan yang berharga bagi perusahaan dalam membuat keputusan pembelian dan penjualan yang lebih cerdas, dengan tujuan meningkatkan profitabilitas dan mengoptimalkan posisi mereka di pasar mobil sport yang kompetitif.
 
