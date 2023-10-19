@@ -76,6 +76,10 @@ Berikut informasi pada dataset :
 + 0-60 MPH Time (seconds): Waktu yang diperlukan mobil sport untuk berakselerasi dari 0 hingga 60 mil per jam, yang merupakan ukuran umum akselerasi dan performa. Waktu 0-60 MPH yang lebih rendah biasanya menunjukkan akselerasi yang lebih cepat dan kinerja yang lebih baik.
 + Price (in USD): Harga mobil sport dalam dolar AS, yang mewakili biaya pembelian mobil.
 
+### Exploratory Data Analytics (EDA)
+
+
+
 ## Data preparation
 
 + Encoding
@@ -92,52 +96,46 @@ Berikut informasi pada dataset :
 
 + Train Test Split
 
-  Train test split adalah proses membagi data menjadi data latih dan data uji. Data latih akan digunakan untuk membangun model, sedangkan data uji akan digunakan untuk menguji performa model. Pada proyek ini dataset sebesar 3696 dibagi menjadi 3511 untuk data latih dan 185 untuk data uji.
+  Train test split adalah proses membagi data menjadi data latih dan data uji. Data latih akan digunakan untuk membangun model, sedangkan data uji akan digunakan untuk menguji performa model. Pada proyek ini dataset sebesar 1007 dibagi menjadi 805 untuk data latih dan 202 untuk data uji.
   
 
 ## Modeling
 
 + Algoritma
-  Penelitian ini melakukan pemodelan dengan 3 algoritma, yaitu K-Nearest Neighbour, Random Forest, dan
-  + K-Nearest Neighbour
-    K-Nearest Neighbour bekerja dengan membandingkan jarak satu sampel ke sampel pelatihan lain dengan memilih sejumlah k tetangga terdekat. Proyek ini menggunakan [sklearn.neighbors.KNeighborsRegressor](https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsRegressor.html) dengan memasukkan X_train dan y_train dalam membangun model. Parameter yang digunakan pada proyek ini adalah :
-    + `n_neighbors` = Jumlah k tetangga tedekat.
+  Penelitian ini melakukan pemodelan dengan 2 algoritma, yaitu Logistic Linear Regression, dan Decision Tree
+  + Logistic Linear Regression
 
-  + Random Forest
-    Algoritma random forest adalah teknik dalam machine learning dengan metode ensemble. Teknik ini beroperasi dengan membangun banyak decision tree pada waktu pelatihan. Proyek ini menggunakan [sklearn.ensemble.RandomForestRegressor](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestRegressor.html) dengan memasukkan X_train dan y_train dalam membangun model. Parameter yang digunakan pada proyek ini adalah :
-    + `n_estimators` = Jumlah maksimum estimator di mana boosting dihentikan.
-    + `max_depth` = Kedalaman maksimum setiap tree.
-    + `random_state` = Mengontrol seed acak yang diberikan pada setiap base_estimator pada setiap iterasi boosting.
+    Regresi logistik linear, sering disebut sebagai regresi logistik, adalah metode statistik yang digunakan untuk tugas klasifikasi biner. Ini adalah jenis analisis regresi yang cocok untuk memodelkan hubungan antara variabel dependen biner (yaitu yang memiliki dua hasil mungkin, biasanya dikodekan sebagai 0 dan 1) dan satu atau lebih variabel independen. Regresi logistik digunakan untuk memprediksi probabilitas bahwa suatu input tertentu termasuk dalam salah satu dari dua kelas. Proyek ini menggunakan [sklearn.linear_model.LogisticRegression](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html) dengan memasukkan X_train dan y_train dalam membangun model.
 
-  + Adaboost
-    AdaBoost juga disebut Adaptive Boosting adalah teknik dalam machine learning dengan metode ensemble.  Algoritma yang paling umum digunakan dengan AdaBoost adalah pohon keputusan (decision trees) satu tingkat yang berarti memiliki pohon Keputusan dengan hanya 1 split. Pohon-pohon ini juga disebut Decision Stumps. Algoritma ini bertujuan untuk meningkatkan performa atau akurasi prediksi dengan cara menggabungkan beberapa model sederhana dan dianggap lemah (weak learners) secara berurutan sehingga membentuk suatu model yang kuat (strong ensemble learner). Proyek ini menggunakan [sklearn.ensemble.AdaBoostRegressor](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.AdaBoostRegressor.html) dengan memasukkan X_train dan y_train dalam membangun model. Parameter yang digunakan pada proyek ini adalah :
-    + `n_estimators` = Jumlah maksimum estimator di mana boosting dihentikan.
-    + `learning_rate` = Learning rate memperkuat kontribusi setiap regressor.
-    + `random_state` = Mengontrol seed acak yang diberikan pada setiap base_estimator pada setiap iterasi boosting.
+  + Decision Tree
+
+    Decision tree (pohon keputusan) adalah sebuah model prediktif dalam ilmu data dan pembelajaran mesin yang digunakan untuk mengambil keputusan berdasarkan aturan yang didefinisikan dalam bentuk struktur pohon. Model ini digunakan untuk masalah klasifikasi dan regresi, serta dapat digunakan untuk tugas pengambilan keputusan yang melibatkan berbagai variabel dan skenario. Proyek ini menggunakan [sklearn.tree.DecisionTreeRegressor](https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeRegressor.html).
+
+
 
 + Hyperparameter Tuning (Grid Search)
-  Hyperparameter tuning adalah cara untuk mendapatkan parameter terbaik dari algoritma dalam membangun model. Salah satu teknik dalam hyperparameter tuning yang digunakan dalam proyek ini adalah grid search. Berikut adalah hasil dari Grid Search pada proyek ini :
+  Hyperparameter tuning adalah cara untuk mendapatkan parameter terbaik dari algoritma dalam membangun model. Salah satu teknik dalam hyperparameter tuning yang digunakan dalam proyek ini adalah grid search. 
+  
+  Dalam kasus ini, parameter tuning dilakukan pada model yang menggunakan algoritma decision tree. Hal ini didasarkan pada hasil sebelumnya yang sudah didapatkan, Decision Tree memiliki hasil r2_score yang lebih baik jika dibandingkan dengan Logistic Linear Regression. Berikut adalah hasil dari Grid Search pada proyek ini :
   | model    | best_params                                                     |
   |----------|-----------------------------------------------------------------|
-  | knn      | {'n_neighbors': 7}                                              |
-  | boosting | {'learning_rate': 0.1, 'n_estimators': 100, 'random_state': 11} |
-  | rf       | {'max_depth': 8, 'n_estimators': 25, 'random_stste': 11}        |
+  | Decision | {'max_depth': None, 'max_features': 'sqrt',                     |
+  | Tree     |  'min_samples_leaf': 1, 'min_samples_split':2}                  |
+
 
 ## Evaluation
 
-Metrik evaluasi yang digunakan pada proyek ini adalah akurasi dan mean squared error (MSE). Akurasi menentukan tingkat kemiripan antara hasil prediksi dengan nilai yang sebenarnya (y_test). Mean squared error (MSE) mengukur error dalam model statistik dengan cara menghitung rata-rata error dari kuadrat hasil aktual dikurang hasil prediksi. Berikut formulan MSE :
+Metrik evaluasi yang digunakan pada proyek ini R2 Score. R^2 (R-squared), juga dikenal sebagai koefisien determinasi, adalah metrik evaluasi yang digunakan dalam statistik dan analisis regresi untuk mengukur sejauh mana model regresi cocok dengan data yang diamati. R^2 score mengukur seberapa baik variabilitas dalam data independen (variabel prediktor) menjelaskan variabilitas dalam data dependen (variabel target). R^2 score berkisar antara 0 hingga 1, dan semakin mendekati 1, semakin baik model regresinya sesuai dengan data. Berikut formula R2 Score :
 <div><img src="https://user-images.githubusercontent.com/107544829/188412654-f5dc0ae1-901b-470e-aae5-1f6b5fb68b4d.png" width="300"/></div>
 
 Berikut hasil evaluasi pada proyek ini :
 
-+ Akurasi
-  | model    | accuracy |
-  |----------|----------|
-  | knn      | 0.726775 |
-  | boosting | 0.898556 |
-  | rf       | 0.932057 |
++ R2 Score
+  | model                       | r2_score |
+  |-----------------------------|----------|
+  | Logistic Linear Regression  | 0.720902 |
+  | Decision Tree               | 0.918839 |
+  | Decision Tree (Hyper-tuning)| 0.974387 |
 
-+ Mean Squared Error (MSE)
-  <div><img src="https://user-images.githubusercontent.com/107544829/188413846-7d5454b5-7f83-488e-836f-4f3593eb3d5d.png" width="300"/></div>
 
-Dari hasil evaluasi dapat dilihat bahwa model dengan algoritma Random Forest memiliki akurasi lebih tinggi tinggi dan tingkat error lebih kecil dibandingkan algoritma lainnya dalam proyek ini.
+Dari hasil evaluasi yang diperoleh dapat disimpulkan bahwa algoritma terbaik untuk memprediksi permasalahan ini adalah Decision Tree dengan Hyper-Tuning Parameter. Nilai r2_score yang didapatkan adalah 0.974387, nilai ini lebih tinggi jika dibandingkan dengan hasil yang diberikan oleh model Decision Tree tanpa Hyper-Tuning Parameter.
