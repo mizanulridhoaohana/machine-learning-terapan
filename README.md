@@ -149,4 +149,4 @@ Berikut hasil evaluasi pada proyek ini :
   | Decision Tree (Hyper-tuning)| 0.974387 |
 
 
-Dari hasil evaluasi yang diperoleh dapat disimpulkan bahwa algoritma terbaik untuk memprediksi permasalahan ini adalah Decision Tree dengan Hyper-Tuning Parameter. Nilai r2_score yang didapatkan adalah 0.974387, nilai ini lebih tinggi jika dibandingkan dengan hasil yang diberikan oleh model Decision Tree tanpa Hyper-Tuning Parameter.
+Dari hasil evaluasi yang diperoleh dapat disimpulkan bahwa algoritma terbaik untuk memprediksi permasalahan ini adalah Decision Tree dengan Hyper-Tuning Parameter. Nilai R2 Score yang didapatkan adalah 0.97438. Ini adalah peningkatan yang signifikan jika dibandingkan dengan model Decision Tree dengan pengaturan default. R2 Score yang mendekati 1 menunjukkan bahwa model ini sangat baik dalam menjelaskan variasi dalam data. Hasil ini menunjukkan bahwa pengaturan parameter yang lebih optimal telah meningkatkan kinerja model secara signifikan.
