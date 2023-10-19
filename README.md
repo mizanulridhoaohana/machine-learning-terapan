@@ -13,9 +13,9 @@ Pesatnya perkembangan teknologi otomotif dan minat masyarakat terhadap kinerja s
 Dalam upaya untuk memprediksi harga mobil sport, kami memanfaatkan dataset yang berisi informasi tentang harga mobil sport dari berbagai produsen terkemuka. Dataset ini mencakup informasi tentang merek dan model mobil, tahun produksi, ukuran mesin, tenaga kuda, torsi, waktu akselerasi 0-60 MPH, dan harga dalam USD. Data ini menjadi sumber penting untuk menganalisis harga mobil sport beragam dan mengidentifikasi tren dalam pasar. Dengan beragam informasi yang diberikan pada dataset, akan dilakukan studi mendalam untuk mengidentifikasi faktor-faktor yang paling memengaruhi harga mobil sport. Prediksi harga ini akan memberikan wawasan berharga bagi konsumen, pemasar, dan produsen mobil sport, serta para peneliti yang tertarik dalam dinamika pasar otomotif.
 
 <br>
-![image](https://github.com/mizanulridhoaohana/machine-learning-terapan/assets/112617513/2da3b096-c0d2-4bf4-868b-4b181711e36e)
+<div><img src="https://github.com/mizanulridhoaohana/machine-learning-terapan/assets/112617513/2da3b096-c0d2-4bf4-868b-4b181711e36e" width="1000"/></div>
 
-[Referensi gambar]([https://www.pinterest.com/pin/357332551696985459/](https://storage.googleapis.com/kaggle-datasets-images/2988825/5144443/38723a1b40c5912b4224e3378a0eef8b/dataset-cover.jpg?t=2023-03-11-05-55-54))
+[Referensi gambar](https://www.pinterest.com/pin/357332551696985459/](https://storage.googleapis.com/kaggle-datasets-images/2988825/5144443/38723a1b40c5912b4224e3378a0eef8b/dataset-cover.jpg?t=2023-03-11-05-55-54)
 
 <br>
 
