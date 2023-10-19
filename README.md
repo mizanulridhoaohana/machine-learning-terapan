@@ -14,9 +14,6 @@ Dalam upaya untuk memprediksi harga mobil sport, kami memanfaatkan dataset yang 
 
 <br>
 <div><img src="https://github.com/mizanulridhoaohana/machine-learning-terapan/assets/112617513/2da3b096-c0d2-4bf4-868b-4b181711e36e" width="1000"/></div>
-
-[Referensi gambar](https://www.pinterest.com/pin/357332551696985459/](https://storage.googleapis.com/kaggle-datasets-images/2988825/5144443/38723a1b40c5912b4224e3378a0eef8b/dataset-cover.jpg?t=2023-03-11-05-55-54)
-
 <br>
 
 Menentukan harga yang sesuai untuk mobil sport adalah tantangan yang sering kali penuh ketidakpastian dalam industri otomotif. Dalam upaya untuk mengatasi kompleksitas ini, perusahaan otomotif dapat mengambil langkah maju dengan memanfaatkan model machine learning untuk melakukan prediksi harga mobil sport. Dengan pendekatan ini, harapannya adalah mampu mengidentifikasi nilai yang paling akurat berdasarkan karakteristik dan fitur-fitur yang dimiliki oleh setiap mobil. Prediksi harga ini akan memberikan panduan yang berharga bagi perusahaan dalam membuat keputusan pembelian dan penjualan yang lebih cerdas, dengan tujuan meningkatkan profitabilitas dan mengoptimalkan posisi mereka di pasar mobil sport yang kompetitif.
@@ -132,8 +129,10 @@ Metrik evaluasi yang digunakan pada proyek ini [R2 Score](https://scikit-learn.o
 ![image](https://github.com/mizanulridhoaohana/machine-learning-terapan/assets/112617513/2ccbd4bb-0da4-4bb6-b2df-3a1194819e86)
 
 Dimana,
-SS res adalah jumlah kuadrat dari sisa kesalahan.
-SS tot adalah jumlah total kesalahan.
+
+SSRes adalah jumlah kuadrat dari sisa kesalahan.
+
+SSTot adalah jumlah total kesalahan.
 
 Contoh Interpretasi perhitungan skor R2 :
 Asumsikan R2 = 0,68
