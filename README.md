@@ -175,7 +175,17 @@ Pada proses EDA, banyak digunakan analisis sebaran dan korelasi yang bisa diliha
 ## Evaluation
 
 Metrik evaluasi yang digunakan pada proyek ini [R2 Score](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.r2_score.html). R^2 (R-squared), juga dikenal sebagai koefisien determinasi, adalah metrik evaluasi yang digunakan dalam statistik dan analisis regresi untuk mengukur sejauh mana model regresi cocok dengan data yang diamati. R^2 score mengukur seberapa baik variabilitas dalam data independen (variabel prediktor) menjelaskan variabilitas dalam data dependen (variabel target). R^2 score berkisar antara 0 hingga 1, di mana 1 mengindikasikan bahwa model mampu menjelaskan semua variasi dalam data dengan sempurna, sementara 0 menunjukkan bahwa model tidak menjelaskan variasi apa pun dan hasilnya sama dengan prediksi rata-rata. Berikut formula R2 Score :
-![image](https://github.com/mizanulridhoaohana/machine-learning-terapan/assets/112617513/2ccbd4bb-0da4-4bb6-b2df-3a1194819e86)
+
+$$R^2 = \frac{\small {\sum_{n=0}^{n}} {x^2}}{\small \sum_{n=0}^{n}}$$
+
+
+Dalam rumus ini:
+- \( R^2 \) adalah R2 Square.
+- \( y_i \) adalah nilai sebenarnya dari data.
+- \( \hat{y}_i \) adalah nilai yang diprediksi oleh model.
+- \( \bar{y} \) adalah rata-rata dari nilai sebenarnya.
+
+Anda dapat menggunakan rumus LaTeX ini dalam dokumen LaTeX Anda untuk menampilkan formula R2 Square.
 
 Dimana,
 
@@ -203,3 +213,21 @@ Dari hasil evaluasi yang diperoleh dapat disimpulkan bahwa algoritma terbaik unt
 Dalam konteks ini, mendekati 1 adalah hal yang baik karena model Decision Tree yang telah di-tune dengan baik mampu menjelaskan sebagian besar variasi dalam harga mobil sport berdasarkan fitur-fitur yang digunakan (Car Make, Car Model, Year, Engine Size, Horsepower, Torque, 0-60 MPH Time). Ini menunjukkan bahwa model mampu memberikan prediksi yang sangat baik dan akurat dalam menjelaskan bagaimana berbagai faktor-fitur ini memengaruhi harga mobil sport. Dengan kata lain, sekitar 97.44% variasi dalam harga mobil sport dapat dijelaskan oleh model ini.
 
 Dengan hasil ini, kita dapat memiliki tingkat keyakinan yang tinggi dalam kemampuan model untuk melakukan prediksi harga mobil sport berdasarkan atribut-atribut yang diberikan. Hal ini dapat berguna dalam analisis pasar, penetapan harga yang lebih akurat, atau dalam mengidentifikasi faktor-faktor kunci yang memengaruhi harga mobil sport.
+
+### Implikasi Bisnis
+
+Hasil evaluasi dengan R2 Score yang mendekati 1 memiliki implikasi yang signifikan dalam konteks pengambilan keputusan bisnis. Dalam kasus ini, di mana model Decision Tree yang telah di-tune memiliki R2 Score sebesar 0.97438, ini berarti bahwa model tersebut mampu menjelaskan sebagian besar variasi dalam harga mobil sport berdasarkan fitur-fitur yang diberikan. 
+
+Implikasi ini dapat berdampak pada sejumlah keputusan bisnis:
+
+1. **Penetapan Harga yang Lebih Akurat**: Model dengan R2 Score tinggi memungkinkan produsen mobil sport untuk menetapkan harga yang lebih akurat berdasarkan fitur-fitur kendaraan. Dengan pemahaman yang lebih baik tentang bagaimana faktor-faktor seperti merek, model, tahun, ukuran mesin, tenaga kuda, torsi, dan waktu akselerasi memengaruhi harga, produsen dapat menyesuaikan harga dengan lebih baik sesuai dengan karakteristik mobil sport yang ditawarkan.
+
+2. **Optimisasi Portofolio Produk**: Informasi yang dihasilkan dari model dapat membantu produsen dalam mengoptimalkan portofolio produk mereka. Mereka dapat lebih baik dalam mengidentifikasi fitur-fitur yang paling penting bagi konsumen dan memutuskan jenis mobil sport apa yang harus diproduksi dan dipasarkan.
+
+3. **Kustomisasi Harga**: Model yang akurat memungkinkan produsen untuk menyesuaikan harga mobil sport berdasarkan spesifikasi unik setiap model. Ini memungkinkan harga yang lebih kustomisasi sesuai dengan fitur-fitur tambahan, memberikan fleksibilitas yang lebih besar dalam penetapan harga.
+
+4. **Penentuan Rencana Pemasaran**: Dengan pemahaman yang lebih mendalam tentang bagaimana karakteristik mobil sport memengaruhi harga, produsen dapat mengembangkan strategi pemasaran yang lebih efektif, seperti menyoroti fitur-fitur utama yang mempengaruhi harga.
+
+5. **Analisis Kinerja Bisnis**: Hasil ini juga dapat membantu dalam mengevaluasi kinerja bisnis, seperti memahami hubungan antara berbagai atribut dan performa penjualan. Ini memungkinkan produsen untuk membuat langkah-langkah yang lebih baik dalam merespons perubahan pasar.
+
+Dengan kata lain, R2 Score yang tinggi memberikan landasan yang kuat untuk mengambil keputusan bisnis yang lebih tepat dan berorientasi data. Dalam konteks industri mobil sport yang sangat kompetitif, pemahaman yang kuat tentang faktor-faktor yang memengaruhi harga adalah aset berharga dalam merencanakan strategi dan mengoptimalkan operasi bisnis.
