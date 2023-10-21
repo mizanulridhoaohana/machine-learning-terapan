@@ -15,7 +15,7 @@ Untuk memenuhi kebutuhan tugas proyek Predictive Analytics pada platform Dicodin
 
 Pesatnya perkembangan teknologi otomotif dan minat masyarakat terhadap kinerja serta gaya hidup mewah menjadi hal yang makin banyak digandrungi oleh masyarakat, mobil sport telah menjadi pilihan unggulan bagi pecinta kendaraan yang mencari kombinasi sempurna antara kekuatan, prestasi, dan gaya.
 
-Berdasarkan data yang tersedia, kita dapat mengidentifikasi beberapa tren dan tantangan dalam industri mobil sport:
+Berdasarkan dataset yang tersedia, dapat diidentifikasi beberapa tren dan tantangan dalam industri mobil sport:
 
 Tren:
 
@@ -35,8 +35,7 @@ Tantangan:
 
 4. Fluktuasi Harga Bahan Baku: Harga bahan mentah, seperti logam dan komponen mobil, dapat fluktuatif. Ini dapat berdampak pada biaya produksi mobil sport dan akhirnya pada harga jual.
 
-5. Keamanan dan Keselamatan: Mobil sport sering kali memiliki kinerja tinggi, yang dapat meningkatkan risiko kecelakaan. Tantangan ini mencakup upaya untuk meningkatkan keselamatan pengemudi dan penumpang.
-
+Berdasarkan analisis tren dan tantangan di atas, muncul berbagai tantangan menarik seperti kompetisi yang sengit, regulasi lingkungan, perubahan teknologi serta fluktuasi harga bahan baku. Dengan melihat tren yang berkembang saat ini seperti peningkatan kinerja, pendekatan harga dan elektrifikasi, tentunya berbagai perusahaan akan berlomba-lomba untuk melakukan inovasi dan optimasi dalam penjulan mereka agar mendapatkan hasil penjualan yang optimal. Dengan melihat fakta tersebut, maka diperlukan sebuah model atau inovasi baru yang dapat memperhitungkan berbagai faktor terkait untuk memperoleh hasil maksimal dalam industri penjulan mobil. Salah satu langkah yang dapat diambil adalah dengan menggunakan machine learning untuk membuat sebuah model prediksi harga mobil sport.
 
 Menentukan harga yang sesuai untuk mobil sport adalah tantangan yang sering kali penuh ketidakpastian dalam industri otomotif. Dalam upaya untuk mengatasi kompleksitas ini, perusahaan otomotif dapat mengambil langkah maju dengan memanfaatkan model machine learning untuk melakukan prediksi harga mobil sport. Dengan pendekatan ini, harapannya adalah mampu mengidentifikasi nilai yang paling akurat berdasarkan karakteristik dan fitur-fitur yang dimiliki oleh setiap mobil. Prediksi harga ini akan memberikan panduan yang berharga bagi perusahaan dalam membuat keputusan pembelian dan penjualan yang lebih cerdas, dengan tujuan meningkatkan profitabilitas dan mengoptimalkan posisi mereka di pasar mobil sport yang kompetitif.
 
@@ -44,8 +43,9 @@ Model machine learning yang dibangun akan memungkinkan perusahaan untuk memperki
 
 Referensi : 
 
-+ [Prediksi Harga Mobil Menggunakan Algoritma Regression Hyper-Parameter Tuning](http://jurnal.unprimdn.ac.id/index.php/JUSIKOM/article/view/2479/1459)
-+ [Car Price Prediction Using Machine Learning](https://www.researchgate.net/publication/335799148_Car_Price_Prediction_Using_Machine_Learning)  
+[1] [A. Amalia, M. Radhi, S. H. Sinurat, D. R. H. Sitompul, and E. Indra, “PREDIKSI HARGA MOBIL MENGGUNAKAN ALGORITMA REGRESSI DENGAN HYPER-PARAMETER TUNING”, JUSIKOM PRIMA, vol. 4, no. 2, pp. 28 -32, Feb. 2022.](http://jurnal.unprimdn.ac.id/index.php/JUSIKOM/article/view/2479/1459)
+
+[2] [A. Chandak, P. Ganorkar, S. Sharma, A. Bagmar, and S. Tiwari, “Car price prediction using machine learning,” International Journal of Computer Sciences and Engineering, vol. 7, no. 5, pp. 444–450, 2019. doi:10.26438/ijcse/v7i5.444450 ](https://www.researchgate.net/publication/335799148_Car_Price_Prediction_Using_Machine_Learning)  
 
 ## Business Understanding
 
