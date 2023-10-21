@@ -118,7 +118,7 @@ Pada proses EDA, banyak digunakan analisis sebaran dan korelasi yang bisa diliha
 
 + Train Test Split
 
-  Train test split adalah proses membagi data menjadi data latih dan data uji. Data latih akan digunakan untuk membangun model, sedangkan data uji akan digunakan untuk menguji performa model. Pada proyek ini dataset sebesar 1007 dibagi menjadi 805 untuk data latih dan 202 untuk data uji.
+  Train test split adalah proses membagi data menjadi data latih dan data uji. Data latih akan digunakan untuk membangun model, sedangkan data uji akan digunakan untuk menguji performa model. Pada proyek ini dataset sebesar 1007 dibagi menjadi komposisi 805 (80%) untuk data latih dan 202 (20%) untuk data uji. Komposisi pembagian ini digunakan karena jumlah dataset yang dimiliki cenderung sedikit, sehingga untuk mengoptimalkan pelatihan model, maka komposisi training yang digunakan adalah 80% dan testing 20%.
   
 
 ## Modeling
@@ -127,7 +127,7 @@ Pada proses EDA, banyak digunakan analisis sebaran dan korelasi yang bisa diliha
   Penelitian ini melakukan pemodelan dengan 2 algoritma, yaitu Logistic Linear Regression, dan Decision Tree
   + Logistic Linear Regression
 
-    Regresi logistik linear, sering disebut sebagai regresi logistik, adalah metode statistik yang digunakan untuk tugas klasifikasi biner. Ini adalah jenis analisis regresi yang cocok untuk memodelkan hubungan antara variabel dependen biner (yaitu yang memiliki dua hasil mungkin, biasanya dikodekan sebagai 0 dan 1) dan satu atau lebih variabel independen. Regresi logistik digunakan untuk memprediksi probabilitas bahwa suatu input tertentu termasuk dalam salah satu dari dua kelas. Proyek ini menggunakan [sklearn.linear_model.LogisticRegression](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html) dengan memasukkan X_train dan y_train dalam membangun model.
+    Model Logistic Regression adalah algoritma machine learning yang digunakan untuk mengatasi masalah klasifikasi, terutama dalam konteks binary atau multiclass classification. Cara kerjanya melibatkan transformasi hasil linier dari fitur-fitur masukan menggunakan fungsi sigmoid (logistic function) yang menghasilkan probabilitas kelas. Selama pelatihan, model ini diperbarui untuk meminimalkan kesalahan antara probabilitas prediksi dan label sebenarnya dengan mengoptimalkan fungsi biaya. Kelebihan model ini termasuk interpretabilitas yang baik dan kinerja yang cukup baik pada masalah dengan hubungan linier antara fitur dan variabel target. . Proyek ini menggunakan [sklearn.linear_model.LogisticRegression](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html) dengan memasukkan X_train dan y_train dalam membangun model.
 
   + Decision Tree
 
