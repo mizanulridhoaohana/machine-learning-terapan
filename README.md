@@ -127,18 +127,45 @@ Pada proses EDA, banyak digunakan analisis sebaran dan korelasi yang bisa diliha
   Penelitian ini melakukan pemodelan dengan 2 algoritma, yaitu Logistic Linear Regression, dan Decision Tree
   + Logistic Linear Regression
 
-    Model Logistic Regression adalah algoritma machine learning yang digunakan untuk mengatasi masalah klasifikasi, terutama dalam konteks binary atau multiclass classification. Cara kerjanya melibatkan transformasi hasil linier dari fitur-fitur masukan menggunakan fungsi sigmoid (logistic function) yang menghasilkan probabilitas kelas. Selama pelatihan, model ini diperbarui untuk meminimalkan kesalahan antara probabilitas prediksi dan label sebenarnya dengan mengoptimalkan fungsi biaya. Kelebihan model ini termasuk interpretabilitas yang baik dan kinerja yang cukup baik pada masalah dengan hubungan linier antara fitur dan variabel target. . Proyek ini menggunakan [sklearn.linear_model.LogisticRegression](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html) dengan memasukkan X_train dan y_train dalam membangun model.
+    Model Logistic Regression adalah algoritma machine learning yang digunakan untuk mengatasi masalah klasifikasi, terutama dalam konteks binary atau multiclass classification. Cara kerjanya melibatkan inisialisasi bobot dan bias awal, pembuatan model dengan menghitung skor z, perhitungan transformasi skor dengan sigmoid activation function, perhitungan fungsi biaya berdasarkan probabilitas prediksi, dan pelatihan model dengan mengoptimalkan fungsi biaya melalui gradien turun. Proses ini diulangi hingga mencapai nilai konvergensi. Berikut adalah rumus untuk Z-Score dan fungsi sigmoid dalam LaTeX:
+
+    **Z-Score Formula:**
+    $$Z = \frac{X - \mu}{\sigma}$$
+    
+    Di mana:
+    - \(Z\) adalah Z-Score.
+    - \(X\) adalah nilai.
+    - \(\mu\) adalah rata-rata (mean).
+    - \(\sigma\) adalah deviasi standar (standard deviation).
+    
+    **Sigmoid Function Formula:**
+    $$S(x) = \frac{1}{1 + e^{-x}}$$
+    
+    Di mana:
+    - \(S(x)\) adalah nilai fungsi sigmoid.
+    - \(x\) adalah nilai input.
+    - \(e\) adalah bilangan Euler (sekitar 2.71828).
+    
+    Selama pelatihan, model ini diperbarui untuk meminimalkan kesalahan antara probabilitas prediksi dan label sebenarnya dengan mengoptimalkan fungsi biaya. Kelebihan model ini termasuk interpretabilitas yang baik dan kinerja yang cukup baik pada masalah dengan hubungan linier antara fitur dan variabel target. . Proyek ini menggunakan [sklearn.linear_model.LogisticRegression](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html) dengan memasukkan X_train dan y_train dalam membangun model.
 
   + Decision Tree
 
-    Decision tree (pohon keputusan) adalah sebuah model prediktif dalam ilmu data dan pembelajaran mesin yang digunakan untuk mengambil keputusan berdasarkan aturan yang didefinisikan dalam bentuk struktur pohon. Model ini digunakan untuk masalah klasifikasi dan regresi, serta dapat digunakan untuk tugas pengambilan keputusan yang melibatkan berbagai variabel dan skenario. Proyek ini menggunakan [sklearn.tree.DecisionTreeRegressor](https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeRegressor.html).
+    Decision tree (pohon keputusan) adalah sebuah model prediktif dalam ilmu data dan pembelajaran mesin yang digunakan untuk mengambil keputusan berdasarkan aturan yang didefinisikan dalam bentuk struktur pohon. Model ini digunakan untuk masalah klasifikasi dan regresi, serta dapat digunakan untuk tugas pengambilan keputusan yang melibatkan berbagai variabel dan skenario. Algoritma Decision Tree mengikuti serangkaian langkah untuk membangun model pemutusan keputusan. Langkah-langkah dari algoritma Decision tree adalah sebagai berikut:
+    1. Mulai dari simpul akar, misalkan sebagai S, yang berisi dataset lengkap.
+    2. Ambil atribut terbaik dalam dataset menggunakan Attribute Selection Measure (ASM). ASM yang bisa digunakan di antaranya Information Gain dan Gini Index
+    3. Pisahkan himpunan S menjadi himpunan bagian yang berisi kemungkinan nilai untuk atribut terbaik.
+    4. Buat simpul decision tree yang berisi atribut terbaik.
+    5. Buat simpul decision tree baru secara rekursif menggunakan himpunan bagian dari kumpulan data yang dibuat pada langkah 3. Lanjutkan proses ini sampai tahap terakhir di mana kita tidak dapat mengklasifikasikan simpul lebih lanjut. Simpul ini yang menjadi simpul akhir atau disebut sebagai simpul daun (leaf node).
 
+    Dengan demikian, Decision Tree membantu dalam memetakan kondisi atau atribut yang membimbing keputusan berdasarkan data yang ada, dan memungkinkan kita untuk melakukan klasifikasi atau prediksi. Dalam implementasinya digunakan [sklearn.tree.DecisionTreeRegressor](https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeRegressor.html) dalam code.
 
 
 + Hyperparameter Tuning (Grid Search)
   Hyperparameter tuning adalah cara untuk mendapatkan parameter terbaik dari algoritma dalam membangun model. Salah satu teknik dalam hyperparameter tuning yang digunakan dalam proyek ini adalah grid search. 
   
-  Dalam kasus ini, parameter tuning dilakukan pada model yang menggunakan algoritma decision tree. Hal ini didasarkan pada hasil sebelumnya yang sudah didapatkan, Decision Tree memiliki hasil r2_score yang lebih baik jika dibandingkan dengan Logistic Linear Regression. Berikut adalah hasil dari Grid Search pada proyek ini :
+  Dalam kasus ini, parameter tuning dilakukan pada model yang menggunakan algoritma decision tree. Hal ini didasarkan pada hasil sebelumnya yang sudah didapatkan, Decision Tree memiliki hasil r2_score yang lebih baik jika dibandingkan dengan Logistic Linear Regression.
+
+  Pemilihan model Decision Tree dengan akurasi 0.91 untuk melakukan tuning parameter daripada model Logistic Regression dengan akurasi 0.72 bisa dijelaskan dengan beberapa faktor. Pertama, kinerja yang lebih baik dari Decision Tree menunjukkan kemampuan model ini dalam mengklasifikasikan data dengan akurasi yang lebih tinggi, yang menjadi tujuan utama dalam machine learning. Selain itu, Decision Tree mampu menangani hubungan yang lebih kompleks antara fitur-fitur dan variabel target, yang lebih sulit diakomodasi oleh model Logistic Regression yang bergantung pada hubungan linier. Jika tuning parameter pada Decision Tree berhasil meningkatkan akurasi, ini menandakan bahwa model telah dioptimalkan dengan baik. Konteks masalah, interpretabilitas, dan tujuan akhir dalam analisis juga memainkan peran penting dalam pemilihan model. Akhirnya, pemilihan model selalu bergantung pada kombinasi dari faktor-faktor ini, dan dalam situasi ini, Decision Tree terbukti menjadi pilihan yang lebih baik dalam mencapai kinerja yang diinginkan. Berikut adalah hasil dari Grid Search pada proyek ini :
   | model    | best_params                                                     |
   |----------|-----------------------------------------------------------------|
   | Decision | {'max_depth': None, 'max_features': 'sqrt',                     |
@@ -147,7 +174,7 @@ Pada proses EDA, banyak digunakan analisis sebaran dan korelasi yang bisa diliha
 
 ## Evaluation
 
-Metrik evaluasi yang digunakan pada proyek ini [R2 Score](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.r2_score.html). R^2 (R-squared), juga dikenal sebagai koefisien determinasi, adalah metrik evaluasi yang digunakan dalam statistik dan analisis regresi untuk mengukur sejauh mana model regresi cocok dengan data yang diamati. R^2 score mengukur seberapa baik variabilitas dalam data independen (variabel prediktor) menjelaskan variabilitas dalam data dependen (variabel target). R^2 score berkisar antara 0 hingga 1, dan semakin mendekati 1, semakin baik model regresinya sesuai dengan data. Berikut formula R2 Score :
+Metrik evaluasi yang digunakan pada proyek ini [R2 Score](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.r2_score.html). R^2 (R-squared), juga dikenal sebagai koefisien determinasi, adalah metrik evaluasi yang digunakan dalam statistik dan analisis regresi untuk mengukur sejauh mana model regresi cocok dengan data yang diamati. R^2 score mengukur seberapa baik variabilitas dalam data independen (variabel prediktor) menjelaskan variabilitas dalam data dependen (variabel target). R^2 score berkisar antara 0 hingga 1, di mana 1 mengindikasikan bahwa model mampu menjelaskan semua variasi dalam data dengan sempurna, sementara 0 menunjukkan bahwa model tidak menjelaskan variasi apa pun dan hasilnya sama dengan prediksi rata-rata. Berikut formula R2 Score :
 ![image](https://github.com/mizanulridhoaohana/machine-learning-terapan/assets/112617513/2ccbd4bb-0da4-4bb6-b2df-3a1194819e86)
 
 Dimana,
@@ -171,4 +198,8 @@ Berikut hasil evaluasi pada proyek ini :
   | Decision Tree (Hyper-tuning)| 0.974387 |
 
 
-Dari hasil evaluasi yang diperoleh dapat disimpulkan bahwa algoritma terbaik untuk memprediksi permasalahan ini adalah Decision Tree dengan Hyper-Tuning Parameter. Nilai R2 Score yang didapatkan adalah 0.97438. Ini adalah peningkatan yang signifikan jika dibandingkan dengan model Decision Tree dengan pengaturan default. R2 Score yang mendekati 1 menunjukkan bahwa model ini sangat baik dalam menjelaskan variasi dalam data. Hasil ini menunjukkan bahwa pengaturan parameter yang lebih optimal telah meningkatkan kinerja model secara signifikan.
+Dari hasil evaluasi yang diperoleh dapat disimpulkan bahwa algoritma terbaik untuk memprediksi permasalahan ini adalah Decision Tree dengan Hyper-Tuning Parameter. Nilai R2 Score yang didapatkan adalah 0.97438 atau bisa dibilang mendekati nilai maksimum 1. R2 Score (Coefficient of Determination) adalah ukuran statistik yang mengindikasikan sejauh mana model statistik memprediksi variabilitas data. Nilai R2 Score berkisar antara 0 hingga 1, di mana 1 menunjukkan bahwa model mampu menjelaskan seluruh variasi dalam data dengan sempurna, sementara 0 menunjukkan bahwa model sama buruknya dengan menggunakan nilai rata-rata sebagai prediksi.
+
+Dalam konteks ini, mendekati 1 adalah hal yang baik karena model Decision Tree yang telah di-tune dengan baik mampu menjelaskan sebagian besar variasi dalam harga mobil sport berdasarkan fitur-fitur yang digunakan (Car Make, Car Model, Year, Engine Size, Horsepower, Torque, 0-60 MPH Time). Ini menunjukkan bahwa model mampu memberikan prediksi yang sangat baik dan akurat dalam menjelaskan bagaimana berbagai faktor-fitur ini memengaruhi harga mobil sport. Dengan kata lain, sekitar 97.44% variasi dalam harga mobil sport dapat dijelaskan oleh model ini.
+
+Dengan hasil ini, kita dapat memiliki tingkat keyakinan yang tinggi dalam kemampuan model untuk melakukan prediksi harga mobil sport berdasarkan atribut-atribut yang diberikan. Hal ini dapat berguna dalam analisis pasar, penetapan harga yang lebih akurat, atau dalam mengidentifikasi faktor-faktor kunci yang memengaruhi harga mobil sport.
