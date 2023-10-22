@@ -42,11 +42,6 @@ Menentukan harga yang sesuai untuk mobil _sport_ adalah tantangan yang sering ka
 
 Model _machine learning_ yang dibangun akan memungkinkan perusahaan untuk memperkirakan harga jual yang bersaing, sehingga mereka dapat memaksimalkan profitabilitas dan mengurangi risiko kerugian finansial. Dengan demikian, perusahaan dapat memahami dengan lebih baik dinamika pasar mobil _sport_, mengantisipasi fluktuasi harga, dan merespons perubahan tren konsumen dengan lebih cepat. Seiring waktu, model ini dapat menjadi alat yang sangat berharga dalam mendukung keputusan-strategis perusahaan, memungkinkan mereka untuk beroperasi secara lebih efisien dan efektif di pasar mobil _sport_ yang selalu berubah.
 
-Referensi : 
-
-[1] [A. Amalia, M. Radhi, S. H. Sinurat, D. R. H. Sitompul, and E. Indra, “PREDIKSI HARGA MOBIL MENGGUNAKAN ALGORITMA REGRESSI DENGAN HYPER-PARAMETER TUNING”, JUSIKOM PRIMA, vol. 4, no. 2, pp. 28 -32, Feb. 2022.](http://jurnal.unprimdn.ac.id/index.php/JUSIKOM/article/view/2479/1459)
-
-[2] [A. Chandak, P. Ganorkar, S. Sharma, A. Bagmar, and S. Tiwari, “Car price prediction using machine learning,” International Journal of Computer Sciences and Engineering, vol. 7, no. 5, pp. 444–450, 2019. doi:10.26438/ijcse/v7i5.444450 ](https://www.researchgate.net/publication/335799148_Car_Price_Prediction_Using_Machine_Learning)  
 
 ## Business Understanding
 
@@ -156,22 +151,14 @@ Pada proses EDA, banyak digunakan analisis sebaran dan korelasi yang bisa diliha
     2. Ambil atribut terbaik dalam dataset menggunakan _Attribute Selection Measure_ (ASM). ASM yang bisa digunakan di antaranya _Information Gain_ dan Gini _Index_
     3. Pisahkan himpunan S menjadi himpunan bagian yang berisi kemungkinan nilai untuk atribut terbaik.
     4. Buat simpul _decision tree_ yang berisi atribut terbaik.
-    5. Buat simpul _decision tree_ baru secara rekursif menggunakan himpunan bagian dari kumpulan data yang dibuat pada langkah 3. Lanjutkan proses ini sampai tahap terakhir di mana kita tidak dapat mengklasifikasikan simpul lebih lanjut. Simpul ini yang menjadi simpul akhir atau disebut sebagai simpul daun (_leaf node_).
+    5. Buat simpul _decision tree_ baru secara rekursif menggunakan himpunan bagian dari kumpulan data yang dibuat pada langkah 3. Lanjutkan proses ini sampai tahap terakhir di mana tidak dapat mengklasifikasikan simpul lebih lanjut. Simpul ini yang menjadi simpul akhir atau disebut sebagai simpul daun (_leaf node_).
 
-    Dengan demikian, _Decision Tree_ membantu dalam memetakan kondisi atau atribut yang membimbing keputusan berdasarkan data yang ada, dan memungkinkan kita untuk melakukan klasifikasi atau prediksi. Dalam implementasinya digunakan [sklearn.tree.DecisionTreeRegressor](https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeRegressor.html) dalam code.
+    Dengan demikian, _Decision Tree_ membantu dalam memetakan kondisi atau atribut yang membimbing keputusan berdasarkan data yang ada, dan memungkinkan untuk melakukan klasifikasi atau prediksi. Dalam implementasinya digunakan [sklearn.tree.DecisionTreeRegressor](https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeRegressor.html) dalam code.
 
 + Hyperparameter Tuning (Grid Search)
  _ Hyperparameter tuning_ adalah cara untuk mendapatkan parameter terbaik dari algoritma dalam membangun model. Salah satu teknik dalam _hyperparameter tuning_ yang digunakan dalam proyek ini adalah _grid search_. 
   
   Dalam kasus ini, parameter _tuning_ dilakukan pada model yang menggunakan algoritma _decision tree_. Hal ini didasarkan pada hasil sebelumnya yang sudah didapatkan, _Decision Tree_ memiliki hasil r2_score yang lebih baik jika dibandingkan dengan _Logistic Linear Regression_.
-
-  Pemilihan model _Decision Tree_ dengan akurasi 0.91 untuk melakukan _tuning_ parameter daripada model Logistic Regression dengan akurasi 0.72 bisa dijelaskan dengan beberapa faktor. Pertama, kinerja yang lebih baik dari _Decision Tree_ menunjukkan kemampuan model ini dalam mengklasifikasikan data dengan akurasi yang lebih tinggi, yang menjadi tujuan utama dalam _machine learning_. Selain itu, _Decision Tree_ mampu menangani hubungan yang lebih kompleks antara fitur-fitur dan variabel target, yang lebih sulit diakomodasi oleh model _Logistic Regression_ yang bergantung pada hubungan linier. Jika _tuning_ parameter pada _Decision Tree_ berhasil meningkatkan akurasi, ini menandakan bahwa model telah dioptimalkan dengan baik. Konteks masalah, interpretabilitas, dan tujuan akhir dalam analisis juga memainkan peran penting dalam pemilihan model. Akhirnya, pemilihan model selalu bergantung pada kombinasi dari faktor-faktor ini, dan dalam situasi ini, _Decision Tree_ terbukti menjadi pilihan yang lebih baik dalam mencapai kinerja yang diinginkan. Berikut adalah hasil dari _Grid Search_ pada proyek ini :
-
-  Tabel 1. Hyper-Tuning Parameter pada Decision Tree
-  | model    | best_params                                                     |
-  |----------|-----------------------------------------------------------------|
-  | Decision Tree| {'max_depth': None, 'max_features': 'sqrt', 'min_samples_leaf': 1, 'min_samples_split':2}  |
- 
 
 
 ## Evaluation
@@ -200,23 +187,33 @@ $R^2$ menunjukkan proporsi titik data yang terletak di dalam garis yang dibuat o
 
 ### Hasil Evaluasi Proyek
 
-Berikut hasil evaluasi pada proyek ini :
-
-+ $R^2$ Score
+Setelah mengimplementasikan algoritma Logistic Linear Regression dan Decision Tree diperoleh hasil evaluasi menggunakan $R^2 Score$. Berikut hasil evaluasi pada proyek ini :
  
-  Tabel 2. Evaluasi $R^2 Score$ pada proyek
+  Tabel 1. Evaluasi $R^2 Score$ pada proyek
+  | model                       | r2_score |
+  |-----------------------------|----------|
+  | Logistic Linear Regression  | 0.720902 |
+  | Decision Tree               | 0.918839 |
+  
+  Berdasarkan Tabel 2. dipilih model _Decision Tree_ dengan akurasi 0.91 untuk melakukan _tuning_ parameter daripada model Logistic Regression dengan akurasi 0.72 hal ini diakibatkan oleh beberapa faktor. Pertama, kinerja yang lebih baik dari _Decision Tree_ menunjukkan kemampuan model ini dalam mengklasifikasikan data dengan akurasi yang lebih tinggi, yang menjadi tujuan utama dalam _machine learning_. Selain itu, _Decision Tree_ mampu menangani hubungan yang lebih kompleks antara fitur-fitur dan variabel target, yang lebih sulit diakomodasi oleh model _Logistic Regression_ yang bergantung pada hubungan linier. Jika _tuning_ parameter pada _Decision Tree_ berhasil meningkatkan akurasi, ini menandakan bahwa model telah dioptimalkan dengan baik. Konteks masalah, interpretabilitas, dan tujuan akhir dalam analisis juga memainkan peran penting dalam pemilihan model. Akhirnya, pemilihan model selalu bergantung pada kombinasi dari faktor-faktor ini, dan dalam situasi ini, _Decision Tree_ terbukti menjadi pilihan yang lebih baik dalam mencapai kinerja yang diinginkan. Berikut adalah hasil dari _Grid Search_ pada proyek ini :
+
+  Tabel 2. Hyper-Tuning Parameter pada Decision Tree
+  | model    | best_params                                                     |
+  |----------|-----------------------------------------------------------------|
+  | Decision Tree| {'max_depth': None, 'max_features': 'sqrt', 'min_samples_leaf': 1, 'min_samples_split':2}  |
+
+Tabel 3. Evaluasi $R^2 Score$ pada proyek
   | model                       | r2_score |
   |-----------------------------|----------|
   | Logistic Linear Regression  | 0.720902 |
   | Decision Tree               | 0.918839 |
   | Decision Tree (Hyper-tuning)| 0.974387 |
 
-
-Dari hasil evaluasi yang diperoleh dapat disimpulkan bahwa algoritma terbaik untuk memprediksi permasalahan ini adalah _Decision Tree_ dengan _Hyper-Tuning Parameter_. Nilai R2 Score yang didapatkan adalah 0.97438 atau bisa dibilang mendekati nilai maksimum 1. R2 Score (_Coefficient of Determination_) adalah ukuran statistik yang mengindikasikan sejauh mana model statistik memprediksi variabilitas data. Nilai R2 Score berkisar antara 0 hingga 1, di mana 1 menunjukkan bahwa model mampu menjelaskan seluruh variasi dalam data dengan sempurna, sementara 0 menunjukkan bahwa model sama buruknya dengan menggunakan nilai rata-rata sebagai prediksi.
+Dari hasil evaluasi yang diperoleh pada Tabel 3 dapat disimpulkan bahwa algoritma terbaik untuk memprediksi permasalahan ini adalah _Decision Tree_ dengan _Hyper-Tuning Parameter_. Nilai R2 Score yang didapatkan adalah 0.97438 atau bisa dibilang mendekati nilai maksimum 1. R2 Score (_Coefficient of Determination_) adalah ukuran statistik yang mengindikasikan sejauh mana model statistik memprediksi variabilitas data. Nilai R2 Score berkisar antara 0 hingga 1, di mana 1 menunjukkan bahwa model mampu menjelaskan seluruh variasi dalam data dengan sempurna, sementara 0 menunjukkan bahwa model sama buruknya dengan menggunakan nilai rata-rata sebagai prediksi.
 
 Dalam konteks ini, mendekati 1 adalah hal yang baik karena model Decision Tree yang telah di-_tune_ dengan baik mampu menjelaskan sebagian besar variasi dalam harga mobil _sport_ berdasarkan fitur-fitur yang digunakan (_Car Make, Car Model, Year, Engine Size, Horsepower, Torque, 0-60 MPH Time_). Ini menunjukkan bahwa model mampu memberikan prediksi yang sangat baik dan akurat dalam menjelaskan bagaimana berbagai faktor-fitur ini memengaruhi harga mobil _sport_. Dengan kata lain, sekitar 97.44% variasi dalam harga mobil sport dapat dijelaskan oleh model ini.
 
-Dengan hasil ini, kita dapat memiliki tingkat keyakinan yang tinggi dalam kemampuan model untuk melakukan prediksi harga mobil _sport_ berdasarkan atribut-atribut yang diberikan. Hal ini dapat berguna dalam analisis pasar, penetapan harga yang lebih akurat, atau dalam mengidentifikasi faktor-faktor kunci yang memengaruhi harga mobil sport.
+Dengan hasil ini, didapatkan tingkat keyakinan yang tinggi dalam kemampuan model untuk melakukan prediksi harga mobil _sport_ berdasarkan atribut-atribut yang diberikan. Hal ini dapat berguna dalam analisis pasar, penetapan harga yang lebih akurat, atau dalam mengidentifikasi faktor-faktor kunci yang memengaruhi harga mobil sport.
 
 ### Implikasi Bisnis
 
@@ -235,3 +232,11 @@ Implikasi ini dapat berdampak pada sejumlah keputusan bisnis:
 5. **Analisis Kinerja Bisnis**: Hasil ini juga dapat membantu dalam mengevaluasi kinerja bisnis, seperti memahami hubungan antara berbagai atribut dan performa penjualan. Ini memungkinkan produsen untuk membuat langkah-langkah yang lebih baik dalam merespons perubahan pasar.
 
 Dengan kata lain, _R2 Score_ yang tinggi memberikan landasan yang kuat untuk mengambil keputusan bisnis yang lebih tepat dan berorientasi data. Dalam konteks industri mobil _sport_ yang sangat kompetitif, pemahaman yang kuat tentang faktor-faktor yang memengaruhi harga adalah aset berharga dalam merencanakan strategi dan mengoptimalkan operasi bisnis.
+
+
+
+**Referensi** : 
+
+[1] [A. Amalia, M. Radhi, S. H. Sinurat, D. R. H. Sitompul, and E. Indra, “PREDIKSI HARGA MOBIL MENGGUNAKAN ALGORITMA REGRESSI DENGAN HYPER-PARAMETER TUNING”, JUSIKOM PRIMA, vol. 4, no. 2, pp. 28 -32, Feb. 2022.](http://jurnal.unprimdn.ac.id/index.php/JUSIKOM/article/view/2479/1459)
+
+[2] [A. Chandak, P. Ganorkar, S. Sharma, A. Bagmar, and S. Tiwari, “Car price prediction using machine learning,” International Journal of Computer Sciences and Engineering, vol. 7, no. 5, pp. 444–450, 2019. doi:10.26438/ijcse/v7i5.444450 ](https://www.researchgate.net/publication/335799148_Car_Price_Prediction_Using_Machine_Learning)  
