@@ -95,6 +95,7 @@ Berikut informasi pada dataset :
 Pada proses EDA, banyak digunakan analisis sebaran dan korelasi yang bisa dilihat langsung pada code yang sudah dilampirkan. Penggunaan visualisasi juga menjadi faktor penting dalam mempermudah memahami karakteristik dataset. Hal ini memberikan _insight_ lanjutan untuk memproses data sebelum dilakukan proses prediksi.
 
 ![distribusi](https://github.com/mizanulridhoaohana/machine-learning-terapan/assets/112617513/41399130-eeb3-442d-b610-bda0db6b8bc3)
+
 Gambar 2. Visualisasi Frekuensi dan Harga
 
 Gambar 2. menunjukkan bahwa data ini memiliki sebaran dengan frekuensi tertinggi muncul pada rentang harga 0 sampai $1 x 10e^6$ USD.
