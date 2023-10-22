@@ -94,6 +94,30 @@ Berikut informasi pada dataset :
 
 Pada proses EDA, banyak digunakan analisis sebaran dan korelasi yang bisa dilihat langsung pada code yang sudah dilampirkan. Penggunaan visualisasi juga menjadi faktor penting dalam mempermudah memahami karakteristik dataset. Hal ini memberikan _insight_ lanjutan untuk memproses data sebelum dilakukan proses prediksi.
 
+![distribusi](https://github.com/mizanulridhoaohana/machine-learning-terapan/assets/112617513/41399130-eeb3-442d-b610-bda0db6b8bc3)
+Gambar 2. Visualisasi Frekuensi dan Harga
+
+Gambar 2. menunjukkan bahwa data ini memiliki sebaran dengan frekuensi tertinggi muncul pada rentang harga 0 sampai $1 x 10e^6$ USD.
+
+Menilik lebih jauh, korelasi distribusi dapat dilihat pada tabel berikut:
+
+![corr](https://github.com/mizanulridhoaohana/machine-learning-terapan/assets/112617513/a4f3b623-cd8a-47b8-a85d-ee4a668593cd)
+
+Gambar 3. Korelasi Dataset
+
+![pairplot](https://github.com/mizanulridhoaohana/machine-learning-terapan/assets/112617513/b4157b87-fda9-4312-987e-60be5694b8c5)
+
+Gambar 4. Visualisasi Sebaran dan Korelasi Keseluruhan data
+
+Dalam Exploratory Data Analysis (EDA) Gambar 3 dan Gambar 4 akan melakukan visualisasi hubungan antara setiap pasangan variabel numerik dalam dataset. Setiap sel dalam matriks berisi sebuah scatter plot yang menunjukkan bagaimana dua variabel numerik berinteraksi. Selain itu, diagonal matriks berisi histogram dari masing-masing variabel, yang dapat membantu untuk mempermudah dalam memahami distribusi data. Palet warna yang digunakan oleh Seaborn dapat membantu mengidentifikasi kategori dalam variabel, sehingga memungkinkan untuk melihat hubungan antar variabel numerik dalam konteks kategori. Fungsi ini memberikan pandangan keseluruhan tentang data, dapat membantu dalam menemukan pola, korelasi, atau outlier yang mungkin tidak terlihat dalam statistik deskriptif biasa.
+
+![car prcice](https://github.com/mizanulridhoaohana/machine-learning-terapan/assets/112617513/16ed462e-e176-4f38-a6a4-66a88fd7d34b)
+
+Gambar 5. Visualisasi Harga dan Perusahaan Produksi
+
+Dari Gambar 5, didapatkan informasi perbandingan harga dari setiap perusahaan produksi, sehingga hal ini dapat dijadikan sebagai acuan dalam menggali informasi dan pengambilan keputusan dalam penetapan harga pasar perusahaan.
+
+
 ## Data preparation
 
 + Encoding
@@ -155,10 +179,9 @@ Pada proses EDA, banyak digunakan analisis sebaran dan korelasi yang bisa diliha
 
     Dengan demikian, _Decision Tree_ membantu dalam memetakan kondisi atau atribut yang membimbing keputusan berdasarkan data yang ada, dan memungkinkan untuk melakukan klasifikasi atau prediksi. Dalam implementasinya digunakan [sklearn.tree.DecisionTreeRegressor](https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeRegressor.html) dalam code.
 
-+ Hyperparameter Tuning (Grid Search)
- _ Hyperparameter tuning_ adalah cara untuk mendapatkan parameter terbaik dari algoritma dalam membangun model. Salah satu teknik dalam _hyperparameter tuning_ yang digunakan dalam proyek ini adalah _grid search_. 
-  
-  Dalam kasus ini, parameter _tuning_ dilakukan pada model yang menggunakan algoritma _decision tree_. Hal ini didasarkan pada hasil sebelumnya yang sudah didapatkan, _Decision Tree_ memiliki hasil r2_score yang lebih baik jika dibandingkan dengan _Logistic Linear Regression_.
+  + Hyperparameter Tuning (Grid Search)
+    
+    _ Hyperparameter tuning_ adalah cara untuk mendapatkan parameter terbaik dari algoritma dalam membangun model. Salah satu teknik dalam _hyperparameter tuning_ yang digunakan dalam proyek ini adalah _grid search_. Langkah pertama dalam algoritma ini adalah mendefinisikan parameter yang akan diuji, seperti kedalaman pohon dalam Decision Tree atau laju pembelajaran dalam Regresi Logistik. Kemudian, akan dibuat "grid" parameter yang berisi semua kombinasi nilai yang akan diuji. Setelah itu, data akan dibagi menjadi set pelatihan dan set validasi silang. Untuk setiap kombinasi parameter dalam grid, model dilatih pada set pelatihan dan diuji pada set validasi silang. Hasilnya dievaluasi dengan metrik kinerja seperti akurasi atau R2 Score. Setelah mengevaluasi semua kombinasi parameter, akan dipilih kombinasi yang memberikan kinerja terbaik. Parameter ini kemudian digunakan untuk melatih model pada seluruh data pelatihan. Pendekatan ini akan mempermudah dalam menemukan parameter yang optimal tanpa harus melakukan upaya uji coba dan kesalahan secara manual, dan memastikan bahwa model yang dibangun memiliki kinerja paling baik untuk tugas yang diberikan.
 
 
 ## Evaluation
@@ -187,17 +210,19 @@ $R^2$ menunjukkan proporsi titik data yang terletak di dalam garis yang dibuat o
 
 ### Hasil Evaluasi Proyek
 
-Setelah mengimplementasikan algoritma Logistic Linear Regression dan Decision Tree diperoleh hasil evaluasi menggunakan $R^2 Score$. Berikut hasil evaluasi pada proyek ini :
+Setelah mengimplementasikan algoritma _Logistic Linear Regression_ dan _Decision Tree_ diperoleh hasil evaluasi menggunakan $R^2 Score$. Berikut hasil evaluasi pada proyek ini :
  
   Tabel 1. Evaluasi $R^2 Score$ pada proyek
   | model                       | r2_score |
   |-----------------------------|----------|
   | Logistic Linear Regression  | 0.720902 |
   | Decision Tree               | 0.918839 |
-  
-  Berdasarkan Tabel 2. dipilih model _Decision Tree_ dengan akurasi 0.91 untuk melakukan _tuning_ parameter daripada model Logistic Regression dengan akurasi 0.72 hal ini diakibatkan oleh beberapa faktor. Pertama, kinerja yang lebih baik dari _Decision Tree_ menunjukkan kemampuan model ini dalam mengklasifikasikan data dengan akurasi yang lebih tinggi, yang menjadi tujuan utama dalam _machine learning_. Selain itu, _Decision Tree_ mampu menangani hubungan yang lebih kompleks antara fitur-fitur dan variabel target, yang lebih sulit diakomodasi oleh model _Logistic Regression_ yang bergantung pada hubungan linier. Jika _tuning_ parameter pada _Decision Tree_ berhasil meningkatkan akurasi, ini menandakan bahwa model telah dioptimalkan dengan baik. Konteks masalah, interpretabilitas, dan tujuan akhir dalam analisis juga memainkan peran penting dalam pemilihan model. Akhirnya, pemilihan model selalu bergantung pada kombinasi dari faktor-faktor ini, dan dalam situasi ini, _Decision Tree_ terbukti menjadi pilihan yang lebih baik dalam mencapai kinerja yang diinginkan. Berikut adalah hasil dari _Grid Search_ pada proyek ini :
 
-  Tabel 2. Hyper-Tuning Parameter pada Decision Tree
+  Berdasarkan Tabel 2. dapat diketahui bahwa hasil yang diperoleh oleh _Decision Tree_ cenderung lebih tinggi jika dibandingkan dengan L_ogistic Linear Regression_ dengan nilai $R^2 Score$ secara berturut-urut 0,91 dan 0,72. Hasil ini sudah cukup memuaskan karena _Decision Tree_ mampu untuk merepresentasikan variasi yang ada pada dataset. Namun, untuk mengamati lebih lanjut, dilakukan proses lanjutan dengan menggunakan _Hyper-tuning Parameter_ untuk melihat seberapa optimal parameter dapat dimanfaatkan. 
+  
+  Dalam hal ini dipilih model _Decision Tree_ dengan akurasi 0.91 untuk melakukan _tuning_ parameter daripada model _Logistic Regression_ dengan akurasi 0.72 hal ini disebabkan oleh beberapa faktor. Pertama, kinerja yang lebih baik dari _Decision Tree_ menunjukkan kemampuan model ini dalam mengklasifikasikan data dengan akurasi yang lebih tinggi, yang menjadi tujuan utama dalam _machine learning_. Selain itu, _Decision Tree_ mampu menangani hubungan yang lebih kompleks antara fitur-fitur dan variabel target, yang lebih sulit diakomodasi oleh model _Logistic Regression_ yang bergantung pada hubungan linier. Jika _tuning_ parameter pada _Decision Tree_ berhasil meningkatkan akurasi, ini menandakan bahwa model telah dioptimalkan dengan baik. Konteks masalah, interpretabilitas, dan tujuan akhir dalam analisis juga memainkan peran penting dalam pemilihan model. Akhirnya, pemilihan model selalu bergantung pada kombinasi dari faktor-faktor ini, dan dalam situasi ini, _Decision Tree_ terbukti menjadi pilihan yang lebih baik dalam mencapai kinerja yang diinginkan. Berikut adalah hasil dari _Grid Search_ pada proyek ini :
+
+  Tabel 2. _Hyper-Tuning Parameter_ pada _Decision Tree_
   | model    | best_params                                                     |
   |----------|-----------------------------------------------------------------|
   | Decision Tree| {'max_depth': None, 'max_features': 'sqrt', 'min_samples_leaf': 1, 'min_samples_split':2}  |
